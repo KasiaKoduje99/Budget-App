@@ -1,0 +1,277 @@
+:root {
+  --income-color: #55c57a;
+  --expense-color: #bb1414;
+
+  --grey-color: #3f3f3f;
+
+  --form-backround-color: #e2ebf0;
+  --balance-backround-color: #cfd9df;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 50%;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 2rem;
+  padding-left: 0.5rem;
+  background-color: var(--form-backround-color);
+  z-index: 2;
+}
+
+.header_heading {
+  font-size: 3.6rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.budget {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.budget_form {
+  flex: 1;
+  background-color: var(--form-backround-color);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10rem 0;
+}
+
+.budget_balance {
+  flex: 1;
+  background-color: var(--balance-backround-color);
+  padding: 0 1 rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+}
+
+.balance_heading {
+  margin-top: 10rem;
+  font-size: 2.4rem;
+}
+
+.inputs {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.switch {
+  padding-right: 2rem;
+}
+
+.switch_input {
+  display: none;
+}
+
+.switch_label {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--income-color);
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.switch_label:before,
+.switch_label:after {
+  content: '';
+  position: absolute;
+  background-color: #ffff;
+  transition: transform 0.25s ease-out;
+}
+
+.switch_label:before {
+  top: 1rem;
+  left: 50%;
+  width: 0.4rem;
+  height: calc(100% - 2rem);
+  margin-left: -0.2rem;
+}
+
+.switch_label:after {
+  top: 50%;
+  left: 1rem;
+  width: calc(100% -2rem);
+  height: 0.4rem;
+  margin-top: -0.2rem;
+}
+
+.switch_input:checked ~ .switch_label {
+  backround-color: var(--expense-color);
+}
+
+.switch-input:checked ~ .switch_label:before {
+  transform: rotate(90deg);
+}
+
+.input {
+  display: block;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.input_input {
+  font-size: 1.5rem;
+  font-family: inherit;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgba(#ffff, 0.5);
+  border: none;
+  width: 15rem;
+  display: block;
+  transition: border-color 0.3s;
+  border-bottom: 0.3rem solid var(--grey-color);
+}
+
+.input_input :focus {
+  outline: none;
+  border-bottom: 0.3rem solid var(--income-color);
+}
+
+.input_input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.input_label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: absolute;
+  top: -2rem;
+  left: 0;
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+}
+
+.input_input:placeholder-shown + .input_label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4rem);
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button_icon {
+  height: 4rem;
+  width: 4rem;
+  fill: var(--income-color);
+  transition: transform 0, 1s ease-in;
+}
+
+.button_icon:hover {
+  transition: translateY(-0.5rem);
+}
+
+.list {
+  margin-top: 5rem;
+}
+
+.list_heading {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.list_list {
+  list-style: none;
+}
+
+.list_item {
+  display: felx;
+  width: 30rem;
+  background-color: #ffff;
+  padding-left: 1rem;
+  align-items: center;
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+}
+
+.list_item:hover {
+  background-color: var(--form-backround-color);
+}
+
+.item_description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.item_value {
+  margin-left: auto;
+}
+
+.item_buttons {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.item_button {
+  height: 3rem;
+  width: 3rem;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.item__button--edit {
+  background-image: url('../assets/icons/create-24px.svg');
+}
+.item__button--delete {
+  background-image: url('../assets/icons/delete-24px.svg');
+}
+
+@media (min-width: 769px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  .header {
+    background-color: transparent;
+  }
+
+  .budget {
+    flex-direction: row;
+  }
+
+  .budget_balance {
+    margin: 0;
+  }
+
+  .item_buttons {
+    opacity: 0;
+    transform: translateX(2rem);
+    transition: opacity 0.1s ease-in, transform 0.1s ease-in;
+  }
+
+  .list_item:hover .item_buttons {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

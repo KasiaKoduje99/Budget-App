@@ -6,9 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget App</title>
     <link rel="stylesheet" href="style.css"></link>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    <header class="header">
+        <h1 class="header_heading">Budget App</h1>
+    </header>
+    <main class="budget">
+        <section class="budget_form">
+            <ul class="inputs">
+                <li class="switch">
+                    <input type="checkbox" name="switch" id="switch" class = "switch_input">
+                <label for="switch" class="switch_label"></label>
+                </li>
+                <li class="input">
+                    <input type="text" name="description" id="description" class="input_input" placeholder="Description">
+                <label for="description" class="input_label">Description</label>
+                </li>
+                <li class="input">
+                    <input type="number" name="value" id="value" class="input_input" placeholder="Value" min="0">
+                <label for="value" class="input_label">Value</label>
+                </li>
+                <li class="inputs_button">
+                    <button class="button">
+                       <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                class="button_icon"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                />
+              </svg>
+            </button>
+                </li>
+            </ul>
+        </section>
+        <section class="budget_balance">
+            <h2 class="balance_heading">
+                Your budget is 100 zł
+            </h2>
+            <article class="balance_list">
+                <section class="list">
+                    <h3 class="list_heading list__heading--incomes">Incomes</h3>
+                <ul class="list_list">
+                    <li class="list_item">
+                        <p class="item_description">Wypłata</p>
+                    <p class="item_value">2000 zł</p>
+                    <div class="item_buttons">
+                        <button class="item_button">edit</button>
+                        <button class="item_button">delete</button>
+                    </div>
+                    </li>
+
+                    <li class="list_item">
+                        <p class="item_description">Wypłata Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nam quis et labore cum hic, delectus quas officiis totam, commodi voluptas vel sapiente sint eaque explicabo deleniti facilis nostrum mollitia!</p>
+                    <p class="item_value">2000 zł</p>
+                    <div class="item_buttons">
+                        <button class="item_button">edit</button>
+                        <button class="item_button">delete</button>
+                    </div>
+                    </li>
+                    
+
+                </ul>
+                </section>
+                        <section class="list">
+                    <h3 class="list__heading list__heading--expenses">Expenses</h3>
+                <ul class="list_list">
+                    <li class="list_item">
+                        <p class="item_description">Podatki</p>
+                    <p class="item_value">1900 zł</p>
+                    <div class="item_buttons">
+                        <button class="item_button">edit</button>
+                        <button class="item_button">delete</button>
+                    </div>
+                    </li>
+
+                    <li class="list_item">
+                        <p class="item_description">Podatki</p>
+                    <p class="item_value">1900 zł</p>
+                    <div class="item_buttons">
+                        <button class="item_button">edit</button>
+                        <button class="item_button">delete</button>
+                    </div>
+                    </li>
+                    
+
+                </ul>
+            </section>
+            </article>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
